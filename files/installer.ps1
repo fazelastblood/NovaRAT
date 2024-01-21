@@ -14,6 +14,10 @@ $initial_dir = %cd%
 #goto temp, make working directory
 mkdir $path
 cd $path
-echo "" > poc. txt
+
+
+
+# self delete
 cd $initial_dir
-Remove-Item installer.ps1
+del installer.ps1
+
