@@ -9,7 +9,7 @@ function random_text {
 ## variables
 $wd = random_text
 $path = "$env:temp/$wd"
-$initial_dir = "%cd%"
+$initial_dir = %cd%
 
 #goto temp, make working directory
 mkdir $path
