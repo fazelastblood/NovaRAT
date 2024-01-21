@@ -14,6 +14,6 @@ $initial_dir = %cd%
 #goto temp, make working directory
 mkdir $path
 cd $path
-echo "" > poc.txt
+echo "" > poc. txt
 cd $initial_dir
-del installer.ps1
+Remove-Item installer.ps1
